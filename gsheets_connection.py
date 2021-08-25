@@ -27,7 +27,10 @@ def main(type):
     sheet = service.spreadsheets()
 
 
-   #Recieve data from gsheets to manipulate with pandas. All follow functions does the same thing, but pick up differents values from gsheets, this is just an example from what i've use. You will need change values to your own columns names
+   """
+   Recieve data from gsheets to manipulate with pandas. All follow functions does the same thing, but pick up differents values from gsheets,
+   this is just an example from what i've use. You will need change values to your own columns names
+   """
     if type == 'data':
         SHEETS_RANGE = """insert sheet range (like: sheet!A1:B2)"""
         result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
