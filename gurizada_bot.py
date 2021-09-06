@@ -26,7 +26,8 @@ async def on_ready():
 #Function to return a list with playes with that specific Role
 @bot.command()
 async def x5lol(ctx):    
-    """Teste"""
+    """Seleciona membros com cargo de LoL e separa **aleatoriamente** em 2 times
+    """
     #Shortcut to Author of the Message
     atr = ctx.author
     #Shortcut to Author Current Voice Channel
@@ -56,7 +57,8 @@ async def x5lol(ctx):
 
 @bot.command()
 async def x5cs(ctx):    
-    """Teste"""
+    """Seleciona membros com cargo de CS e separa **aleatoriamente** em 2 times
+    """
     atr = ctx.author
     currentvc = atr.voice.channel.name
     usrs = atr.voice.channel.members
@@ -82,18 +84,24 @@ async def x5cs(ctx):
 
 @bot.command()
 async def diaschurras(ctx):
+    """Retorna possível data mínima de imunizaçao total do grupo e quantos dias faltam
+    """
     days = gsheets.main('days')
     data = gsheets.main('data')
     await ctx.send(f'A data mínima do churras é {data} e faltam {days} dias!')
 
 @bot.command()
 async def segundadose(ctx, message):
+    """Retorna data mínima da segunda dose e dias para imunizaçao
+    """
     data = gsheets.dataframe('2dose', message)
     days = gsheets.dataframe('days_to', message)
     await ctx.send(f'A data da segunda dose do **{message}** é **{data}** e faltam {days} dias para imunização total.')
 
 @bot.command()
 async def tabelavacina(ctx):
+    """ Retorna link da tabea de vacinação (também está fixada no discord)
+    """
     await ctx.send("""Link to gsheets""")
 
 @bot.command()
